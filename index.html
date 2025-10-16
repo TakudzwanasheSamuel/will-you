@@ -1,358 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm So Sorry</title>
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will-You 💮</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
 
-        body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: #5a3d3d;
-        }
+  /* Background elements */
+  .flower {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+  }
+  
+  .flower1 {
+    top: 10%;
+    left: 5%;
+    animation: sway 8s infinite ease-in-out;
+  }
+  
+  .flower2 {
+    bottom: 15%;
+    right: 7%;
+    animation: sway 7s infinite ease-in-out reverse;
+  }
+  
+  .flower3 {
+    top: 20%;
+    right: 10%;
+    animation: sway 9s infinite ease-in-out;
+  }
+  
+  .flower4 {
+    bottom: 10%;
+    left: 8%;
+    animation: sway 6s infinite ease-in-out reverse;
+  }
+  
+  .butterfly {
+    position: absolute;
+    z-index: 2;
+    animation: flutter 15s infinite linear;
+  }
+  
+  .butterfly1 {
+    top: 15%;
+    left: 15%;
+    animation-duration: 18s;
+  }
+  
+  .butterfly2 {
+    bottom: 20%;
+    right: 20%;
+    animation-duration: 22s;
+  }
+  
+  .butterfly3 {
+    top: 30%;
+    right: 15%;
+    animation-duration: 20s;
+  }
+  
+  .doll {
+    position: absolute;
+    z-index: 2;
+    animation: bounce 4s infinite ease-in-out;
+  }
+  
+  .doll1 {
+    bottom: 5%;
+    left: 10%;
+  }
+  
+  .doll2 {
+    bottom: 5%;
+    right: 10%;
+    animation-delay: 0.5s;
+  }
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+    position: relative;
+    z-index: 10;
+  }
 
-        /* Slider Styles */
-        .slider-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            height: 300px;
-        }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+  
+  @keyframes flutter {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(100px, 50px) rotate(5deg); }
+    50% { transform: translate(50px, 100px) rotate(0deg); }
+    75% { transform: translate(-50px, 50px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
 
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-            height: 100%;
-        }
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  button {
+    background: #fff;
+    color: #ff69b4;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    margin: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #e75480;
-        }
+  button:hover {
+    background: #ff1493;
+    color: #fff;
+    transform: scale(1.1);
+  }
 
-        p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        /* Button Styles */
-        .btn {
-            background: linear-gradient(to right, #e75480, #ff8fab);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 84, 128, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 84, 128, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-        }
-
-        /* Decorative Elements */
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            color: #e75480;
-            animation: float 4s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Confetti */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            opacity: 0;
-        }
-
-        /* Progress Dots */
-        .dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #ffc0cb;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: #e75480;
-            transform: scale(1.3);
-        }
-
-        /* Floral Decoration */
-        .floral {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0.2;
-            color: #e75480;
-        }
-
-        .floral-1 {
-            top: 10px;
-            left: 10px;
-        }
-
-        .floral-2 {
-            bottom: 10px;
-            right: 10px;
-        }
-
-        /* Responsive */
-        @media (max-width: 500px) {
-            h1 {
-                font-size: 24px;
-            }
-            p {
-                font-size: 16px;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-    </style>
+  #confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .heart {
+    position: absolute;
+    z-index: 5;
+    font-size: 20px;
+    animation: float 5s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Floral decorations -->
-        <div class="floral floral-1">🌸</div>
-        <div class="floral floral-2">🌺</div>
 
-        <div class="slider-container">
-            <div class="slider">
-                <!-- Slide 1 -->
-                <div class="slide">
-                    <h1>I'm So Sorry</h1>
-                    <p>I know I messed up and I want to make things right between us.</p>
-                    <button class="btn" onclick="nextSlide()">Continue</button>
-                </div>
+<canvas id="confetti-canvas"></canvas>
 
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <h1>I Value Our Friendship</h1>
-                    <p>You mean so much to me, and I hate that I've hurt you. I never want to see you upset because of me.</p>
-                    <button class="btn" onclick="nextSlide()">I Mean It</button>
-                </div>
+<!-- Background elements -->
+<div class="flower flower1">🌸</div>
+<div class="flower flower2">🌺</div>
+<div class="flower flower3">🌼</div>
+<div class="flower flower4">🌷</div>
 
-                <!-- Slide 3 -->
-                <div class="slide">
-                    <h1>I'll Do Better</h1>
-                    <p>I promise to be more thoughtful and considerate of your feelings from now on.</p>
-                    <button class="btn" onclick="nextSlide()">Please Believe Me</button>
-                </div>
+<div class="butterfly butterfly1">🦋</div>
+<div class="butterfly butterfly2">🦋</div>
+<div class="butterfly butterfly3">🦋</div>
 
-                <!-- Slide 4 -->
-                <div class="slide">
-                    <h1>Will You Forgive Me?</h1>
-                    <p>I miss talking to you and laughing with you. Can we put this behind us?</p>
-                    <button class="btn" id="forgive-btn">Do You Forgive Me?</button>
-                </div>
-            </div>
-        </div>
+<div class="doll doll1">🧸</div>
+<div class="doll doll2">🧸</div>
 
-        <!-- Progress dots -->
-        <div class="dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+<div class="container" id="question-box">
+  <h1 id="question">Hey Maiguru...</h1>
+  <div id="buttons">
+    <button onclick="nextQuestion()">Sure 😊</button>
+  </div>
+</div>
 
-        <!-- Hearts container (for animation) -->
-        <div class="hearts" id="hearts"></div>
-    </div>
+<script>
+  const questions = [
+    "Gore ringatopera...",
+    "Even if I really didn't, I feel bad for blowing you off last time 🙈",
+    "But I'd love to make it up to you 💕",
+    "So Ashely Kimberly Khumalo...",
+    "Will you go out with me? 💖"
+  ];
 
-    <script>
-        // Slider functionality
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const forgiveBtn = document.getElementById('forgive-btn');
-        const heartsContainer = document.getElementById('hearts');
-        let currentSlide = 0;
+  let current = 0;
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
+  function nextQuestion() {
+    const box = document.getElementById("question");
+    const buttons = document.getElementById("buttons");
 
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
+    current++;
 
-        // Forgive button functionality
-        forgiveBtn.addEventListener('click', () => {
-            // Create confetti
-            createConfetti();
-            
-            // Create floating hearts
-            createHearts();
-            
-            // Change button text
-            forgiveBtn.textContent = "Thank You! 💖";
-            forgiveBtn.disabled = true;
-        });
+    if (current < questions.length) {
+      box.textContent = questions[current];
+      buttons.innerHTML = `<button onclick="nextQuestion()">Next 💌</button>`;
+      
+      // Add floating hearts on each click
+      createHearts();
+    } else {
+      box.textContent = questions[current];
+      buttons.innerHTML = `
+        <button onclick="finalAnswer(true)">Yes 💕</button>
+        <button onmouseover="moveButton(this)" onclick="finalAnswer(false)">No 😜</button>
+      `;
+    }
+  }
 
-        function createConfetti() {
-            const colors = ['#e75480', '#ff8fab', '#ffb6c1', '#ffd700', '#87cefa'];
-            
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = -10 + 'px';
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                
-                // Random shape
-                if (Math.random() > 0.5) {
-                    confetti.style.borderRadius = '50%';
-                } else {
-                    confetti.style.width = Math.random() * 10 + 5 + 'px';
-                    confetti.style.height = Math.random() * 5 + 3 + 'px';
-                }
-                
-                document.body.appendChild(confetti);
-                
-                // Animate
-                const animationDuration = Math.random() * 3 + 2;
-                confetti.style.animation = `fall ${animationDuration}s linear forwards`;
-                
-                // Create keyframes dynamically
-                const keyframes = `
-                    @keyframes fall {
-                        to {
-                            transform: translateY(100vh) rotate(${Math.random() * 360}deg);
-                            opacity: 1;
-                        }
-                    }
-                `;
-                
-                const style = document.createElement('style');
-                style.innerHTML = keyframes;
-                document.head.appendChild(style);
-                
-                // Remove after animation
-                setTimeout(() => {
-                    confetti.remove();
-                    style.remove();
-                }, animationDuration * 1000);
-            }
-        }
+  function finalAnswer(choice) {
+    const box = document.getElementById("question");
+    const buttons = document.getElementById("buttons");
 
-        function createHearts() {
-            const heartEmojis = ['💖', '💗', '💓', '💘', '💝', '💞', '💕'];
-            
-            for (let i = 0; i < 30; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '100vh';
-                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-                heart.style.animationDelay = Math.random() * 1 + 's';
-                
-                heartsContainer.appendChild(heart);
-                
-                // Remove after animation
-                setTimeout(() => {
-                    heart.remove();
-                }, 4000);
-            }
-        }
+    if (choice) {
+      box.textContent = "Yay! 💖 I knew you'd say yes! Can't wait! 🌸✨";
+    } else {
+      box.textContent = "No? Haha, too bad 😏 — it's still a YES! 💞";
+    }
 
-        // Make dots clickable
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                updateSlider();
-            });
-        });
-    </script>
+    buttons.innerHTML = "";
+    startConfetti();
+    createHearts(30); // Create more hearts for celebration
+  }
+
+  // Move the "No" button when hovered
+  function moveButton(button) {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 100 - 50;
+    button.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  // Create floating hearts
+  function createHearts(count = 5) {
+    for (let i = 0; i < count; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(heart);
+      
+      // Remove hearts after animation
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+  }
+
+  // Confetti effect 🎉
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let confettis = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function startConfetti() {
+    confettis = [];
+    for (let i = 0; i < 300; i++) {
+      confettis.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 0.5 + 0.5,
+        color: `hsl(${Math.random() * 360}, 100%, 75%)`,
+      });
+    }
+    animateConfetti();
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let c of confettis) {
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
+      ctx.fillStyle = c.color;
+      ctx.fill();
+    }
+    updateConfetti();
+    requestAnimationFrame(animateConfetti);
+  }
+
+  function updateConfetti() {
+    for (let c of confettis) {
+      c.y += c.d * 4;
+      c.x += Math.sin(c.y * 0.02);
+      if (c.y > canvas.height) {
+        c.y = -10;
+        c.x = Math.random() * canvas.width;
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
