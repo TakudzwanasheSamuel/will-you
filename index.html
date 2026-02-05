@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will-You 💮</title>
+<title>Will You Be My Valentine? 💝</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
   
@@ -199,19 +199,19 @@
 <div class="doll doll2">🧸</div>
 
 <div class="container" id="question-box">
-  <h1 id="question">Hey Maiguru...</h1>
+  <h1 id="question">Hey Beautiful...</h1>
   <div id="buttons">
-    <button onclick="nextQuestion()">Yes Bamnini 😊</button>
+    <button onclick="nextQuestion()">Yes 💖</button>
   </div>
 </div>
 
 <script>
   const questions = [
-    "Gore ringatopera...",
-    "Gore ringatopera...And even if I really didn't, I feel bad for blowing you off last time",
-    "But I'd love to make it up to you.",
-    "So Ashely Kimberly Khumalo...",
-    "Let this short cute man take you out"
+    "There's something I've been wanting to ask...",
+    "Every time I see you, my heart skips a beat 💘",
+    "You make every day feel special and bright ✨",
+    "And I was wondering...",
+    "Will you be my Valentine?"
   ];
 
   let current = 0;
@@ -231,8 +231,8 @@
     } else {
       box.textContent = questions[current];
       buttons.innerHTML = `
-        <button onclick="finalAnswer(true)">Yes 💕</button>
-        <button onmouseover="moveButton(this)" onclick="finalAnswer(false)">No 😜</button>
+        <button onclick="finalAnswer(true)">Yes, Absolutely! 💕</button>
+        <button onmouseover="moveButton(this)" onclick="finalAnswer(false)">Maybe... 😜</button>
       `;
     }
   }
@@ -242,9 +242,9 @@
     const buttons = document.getElementById("buttons");
 
     if (choice) {
-      box.textContent = "Yay! 💖 I knew you'd say yes! Can't wait! 🌸✨";
+      box.textContent = "You've made me the happiest person! 💖 Can't wait for our Valentine's date! 🌹✨";
     } else {
-      box.textContent = "No? Haha, too bad 😏 — it's still a YES! 💞";
+      box.textContent = "Maybe means yes in my heart! 😉 So it's a YES! 💞";
     }
 
     buttons.innerHTML = "";
@@ -252,7 +252,7 @@
     createHearts(30); // Create more hearts for celebration
   }
 
-  // Move the "No" button when hovered
+  // Move the "Maybe" button when hovered
   function moveButton(button) {
     const x = Math.random() * 200 - 100;
     const y = Math.random() * 100 - 50;
@@ -328,4 +328,3 @@
 
 </body>
 </html>
-
